@@ -11,5 +11,9 @@
 
 
 def dicetoorderedhand(a, b, c):
+	lis = []
+	lis.append(str(a))
+	lis.append(str(b))
+	lis.append(str(c))
 	# your code goes here
-	pass
+	return int("".join(sorted(lis)[::-1]))
