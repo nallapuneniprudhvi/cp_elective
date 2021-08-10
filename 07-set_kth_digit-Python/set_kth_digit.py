@@ -7,5 +7,15 @@
 
 
 def fun_set_kth_digit(n, k, d):
-		return 0
+	lis = list(str(n))
+	if len(lis) == k:
+		lis.insert(len(lis)-k,str(d))
+	else:
+		lis[len(lis)-k-1] = str(d)
+	num = int("".join(lis))
+	if(n>0):
+		return num
+	else:
+		return -1*num
 
+print(fun_set_kth_digit(468, 3, 1))
