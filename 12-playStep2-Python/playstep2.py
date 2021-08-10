@@ -35,4 +35,34 @@
 
 def playstep2(hand, dice):
 	# your code goes here
-	pass
+	h = list(str(hand))
+	d = list(str(dice))
+	if h[0] == h[1] or h[1] == h[2]:
+		if(h[1] == h[2]):
+			h[0] = d[-1]
+			dice = int("".join(d[:-1]))
+			h.sort(reverse = True)
+			h_lis = int("".join(h))
+		elif(h[0] == h[1]):
+			h[2] = d[-1]
+			dice = int("".join(d[:-1]))
+			h.sort(reverse = True)
+			h_lis = int("".join(h))
+	else:
+		h_lis = list(map(int,h))
+		m_lis = list(map(int,d))
+		max_num = max(h_lis)
+		for i in range(len(h_lis)):
+			if h_lis[i] != max_num:
+				h_lis[i] = m_lis[-1]
+				m_lis = m_lis[:-1]	
+		h_lis.sort(reverse = True)
+		dice = m_lis
+		dice = list(map(str,dice))
+		h_lis = list(map(str,h_lis))
+		dice = int("".join(dice)) 
+		h_lis = int("".join(h_lis))
+
+	return (h_lis,dice)
+
+print(playstep2(413, 2312))
