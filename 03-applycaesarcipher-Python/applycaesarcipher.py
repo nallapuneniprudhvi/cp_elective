@@ -11,8 +11,17 @@
 
 
 def fun_applycaesarcipher(msg, shift):
-	return ""
+	stri = ""
+	for i in msg:
+		if i.isspace():
+			stri+=" "
+		elif i.isupper():
+			stri+=chr((ord(i)+shift-65)% 26 + 65)
+		else:
+			stri+=chr((ord(i)+shift-97)% 26 + 97)
 
+	return stri
 
+print(fun_applycaesarcipher("We Attack At Dawn", 1))
 
 
