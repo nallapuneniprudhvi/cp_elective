@@ -23,6 +23,3 @@ def fun_kth_occurrences(s, n):
 				count+=1
 	return max(dicti,key=dicti.get)
 
-
-fun_kth_occurrences("hsdibdouvbeiovbfeibvdsioubidsbvviefadbcildfab", 4)
-# fun_kth_occurrences("asuszenphonemaxm1 aemnsh", 6)
