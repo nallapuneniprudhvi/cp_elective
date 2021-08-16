@@ -6,7 +6,7 @@
 # are not legal values, return None, instead of crashing. 
 
 
-
+import math
 
 def fun_pascaltrianglevalue(row, col):
-	return 1
+	return (math.factorial(row)//(math.factorial(col)*math.factorial(abs(row-col)))) # nCr
