@@ -19,7 +19,5 @@ def fun_kth_occurrences(s, n):
 		for k,v in dicti.items():
 			if max_num == v:
 				dicti[k] = 0
-				print(dicti)
 				count+=1
 	return max(dicti,key=dicti.get)
-
