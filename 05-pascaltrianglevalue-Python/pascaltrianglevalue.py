@@ -6,7 +6,11 @@
 # are not legal values, return None, instead of crashing. 
 
 
-import math
+def factorial(n):
+	fact = 1
+	for i in range(1,n+1):
+		fact *= i
+	return fact
 
 def fun_pascaltrianglevalue(row, col):
-	return (math.factorial(row)//(math.factorial(col)*math.factorial(abs(row-col)))) # nCr
+	return (factorial(row)//(factorial(col)*factorial(abs(row-col)))) # nCr
