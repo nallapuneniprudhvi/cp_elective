@@ -19,4 +19,16 @@
 
 def ishappynumber(n):
 	# your code goes here
-	pass
+	if n == 1:
+		return True
+	else:
+		while n>9:
+			sum = 0
+			while n!=0:
+				rem = n%10
+				sum += rem**2
+				n = n//10
+			n = sum
+			if n==1:
+				return True
+		return False
