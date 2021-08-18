@@ -16,4 +16,30 @@
 
 
 def nth_happy_number(n):
-	return 0
+	count = 0
+	num =0
+	if n == 1:
+		return 1	
+	while count<n-1:
+		if n == 2:
+			return 7
+		if ishappynumber(num):
+			count+=1
+		num+=1
+	return num-1
+
+
+def ishappynumber(n):
+	if n == 1:
+		return True
+	else:
+		while n>9:
+			sum = 0
+			while n!=0:
+				rem = n%10
+				sum += rem**2
+				n = n//10
+			n = sum
+			if n==1:
+				return True
+		return False
