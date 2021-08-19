@@ -9,5 +9,30 @@
 
 import math
 
+def kaprekar(n):
+    num_square = n**2
+    len_n = len(str(num_square))
+    count = 0
+    while count < len_n:
+        count += 1
+        parts = 10**count
+        if parts == n:
+            continue
+        sumi = (num_square//parts) + (num_square%parts)
+        if sumi == n:
+            return True
+    return False
+
+print(kaprekar(999))
+
 def fun_nth_kaprekarnumber(n):
-    return 1;
+    count = 0
+    num = 1
+    while count <= n:
+        if kaprekar(num):
+            print(num)
+            count+=1
+        num +=1
+    return num-1
+
+print(fun_nth_kaprekarnumber(0))
