@@ -11,6 +11,24 @@
 #  assert(fun_isfactorish(42) == False) # 42 has a leading 0 (only 2 unique digits)
 
 
+def factors(n):
+	temp = n
+	lis = []
+	while n != 0:
+		rem = n%10
+		lis.append(rem)
+		print(lis.count(rem))
+		if rem==0 or temp%rem != 0 or lis.count(rem) > 1:
+			return False
+		n = n//10
+	return True 
+
+
 def fun_isfactorish(n):
+	n = abs(n)
+	if len(str(n)) == 3:
+		if factors(n):
+			return True
+
 	return False
 
