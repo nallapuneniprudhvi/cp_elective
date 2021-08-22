@@ -7,4 +7,12 @@
 
 def isrotation(x, y):
 	# Your code goes here
-	pass
+	x = str(x)
+	y = str(y)
+	for i in range(len(x)):
+		res = x[i:]+x[:i]
+		if res == y or x[::-1] == y:
+			return True
+	return False
+
+print(isrotation(12345,54321))
