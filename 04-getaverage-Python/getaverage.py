@@ -10,5 +10,21 @@
 
 
 def fun_getaverage(s): 
+	lis = s.split(",")
+	sum = 0
+	count = 0
+	for i in lis:
+		if i.isnumeric():
+			i = int(i)
+			print(i)
+			if i<0:
+				continue
+			else:
+				sum += i
+				count+=1
+	if count!=0:
+		average = sum/count
+		return average
 	return 0.0
 
+print(fun_getaverage("13,excused,14,absent"))
