@@ -12,6 +12,25 @@
 
 def areAnagrams(s1, s2):
     # Your code goes here...
-    pass
+    s1=s1.lower().replace(" ","")
+    s2=s2.lower().replace(" ","")
+    if len(s1) != len(s2):
+        return False
+    else:
+        for i in s1:
+            if i.isspace():
+                continue
+            if s1.count(i) != s2.count(i):
+                return False
+            return True
 
 # write your test cases here...
+
+assert(areAnagrams('tar','rat')==True)
+assert(areAnagrams('State','taste')==True)
+assert(areAnagrams('Dusty','study')==True)
+assert(areAnagrams('Dusty','rusty')==False)
+assert(areAnagrams('Conversation','Voices rant on')==True)
+assert(areAnagrams('A gentleman','Elegant man')==True)
+assert(areAnagrams('A gentleman','Elegante man')==False)
+print("All test cases passed...!!")
