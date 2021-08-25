@@ -12,5 +12,31 @@
 
 import math
 
+def kaprekar(n):
+    num_square = n**2
+    len_n = len(str(num_square))
+    count = 0
+    while count < len_n:
+        count += 1
+        parts = 10**count
+        if parts == n:
+            continue
+        sumi = (num_square//parts) + (num_square%parts)
+        if sumi == n:
+            return True
+    return False
+
 def fun_nearestkaprekarnumber(n):
-    return 1
+
+    flag = False
+    num1 = n-1
+    num2 = n+1
+    while(flag!=True):
+        if(kaprekar(n)==True):
+            return n
+        if(kaprekar(num1)==True):
+            return num1
+        if(kaprekar(num2) == True):
+            return num2
+        num1 -= 1
+        num2 += 1
