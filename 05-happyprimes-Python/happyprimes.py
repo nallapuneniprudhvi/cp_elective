@@ -11,4 +11,29 @@
 # functions to make nthHappyNumber(n) easier to write!
 def ishappyprimenumber(n):
     # Your code goes here
-    pass
+    if isPrime(n) and ishappy(n):
+        return True
+    return False
+
+def ishappy(n):
+    if(n==1):
+        return True
+    while (n>=10):
+        lis = list(map(int,str(n)))
+        sq = sum([i**2 for i in lis])
+        n=sq
+        if(n==1):
+            return True
+    return False
+
+def isPrime(n):
+    if n==2:
+        return True
+    if n<2 or n%2==0:
+        return False
+    for i in range(3,n//2,2):
+        if n%i == 0:
+            return False
+    return True
+
+print(ishappy(2))
