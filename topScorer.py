@@ -15,8 +15,28 @@
 # string "None"). So, for example:
 
 def topScorer(data):
-    # Your code goes here...
-    return ""
+    if data == '':
+        return None
+    else:
+        stri = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        stri_lower = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.lower()
+        s = 0
+        person = ''
+        for i in data.splitlines():
+            score = 0
+            name_present = ''
+            for j in i.split(','):
+                if j[0] in stri or j[0] in stri_lower:
+                    name_present = j
+                else:
+                    score += int(j)
+                if score > s:
+                    s = score
+                    person = name_present
+                elif score == s:
+                    if name_present not in person:
+                        person+=","+name_present
+        return person
 
 data = '''\
 Fred,10,20,30,40
