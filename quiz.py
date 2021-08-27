@@ -6,10 +6,24 @@
 
 def bestQuiz(l):
     # Your  code goes ehre...
-    pass
+     result_lis = []
+     if((sum(l[0]) + sum(l[1]))<0):
+           return None
+     for i in range(len(l[0])):
+           num = 0
+           for j in range(len(l)):
+                      
+                 if(l[j][i] == -1):
+                       num=num*2
+                       break       
+                 else:
+                       num+=l[j][i]
+           num=num//2
+           result_lis.append(num)       
+     return result_lis.index(max(result_lis))
 
 def testBestQuiz():
-    print('Testing bestQuiz()...', end='')
+    print('Testing bestQuiz()...')
     a = [ [ 88,  80, 91 ],
           [ 68, 100, -1 ]]
     assert(bestQuiz(a) == 2)
@@ -23,3 +37,5 @@ def testBestQuiz():
           [-1, -1, -1 ]]
     assert(bestQuiz(a) == None)
     print('All test cases passed...!')
+
+testBestQuiz()
