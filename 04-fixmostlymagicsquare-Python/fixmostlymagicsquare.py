@@ -7,4 +7,16 @@
 
 
 def fixmostlymagicsquare(L):
-	# Your code goes here
+	row = 0
+	col = 0
+	flag = False
+	if len(L)==1:
+		return True
+	for i in range(len(L)):
+		for j in range(len(L)):
+			row = row + L[i][j]
+			col = col + L[j][i]
+		if((row!=col) and flag == False):
+			flag = True
+			L[i][j] = L[i][j]-(row-col)
+	return L
