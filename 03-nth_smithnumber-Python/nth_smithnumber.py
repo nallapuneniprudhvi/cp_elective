@@ -66,5 +66,3 @@ def isSmith(n):
            return True
        else:
            return False
-
-print(isSmith(12))
