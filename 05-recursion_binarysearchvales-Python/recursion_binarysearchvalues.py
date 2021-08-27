@@ -17,24 +17,26 @@
 #     assert(binarySearchValues(L, v) == [(2,'f'), (0,'a'), (1,'c')])
 # Hint: Do not slice the list L, but rather adjust the indexes into L. 
 
-def search(arr,v,start,end,lis=[]):
-    mid=(start+end)//2
-    if (start<end) and arr[mid]==v:
-        lis.append((mid,arr[mid]))
-        return lis
-    elif start==end:
-        lis.append((mid,arr[mid]))
-        return lis
-    elif v<arr[mid]:
-        lis.append((mid,arr[mid]))
-        end=mid-1
-    else:
-        lis.append((mid,arr[mid]))
-        start=mid+1
-    return search(arr,v,start,end,lis)
+
+def binarySearch(L,v,low,high,res):
+	if low <=high:
+		mid = (low+high)//2
+		tup=(mid,L[mid])
+		res.append(tup)
+		if L[mid]==v:
+			return res
+		else:
+			if L[mid]<v:
+				return binarySearch(L,v,mid+1,high,res)
+			else:
+				return binarySearch(L,v,low,mid-1,res)
+	return res
 
 
 def recursion_binarysearchvalues(L, v):
 	# Your codes goes here
-	return search(L,v,0,len(L)-1)
+	low=0
+	high =len(L)-1
+	return binarySearch(L,v,low,high,res=[])
+
 	
