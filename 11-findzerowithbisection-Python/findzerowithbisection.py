@@ -9,3 +9,13 @@ def findzerowithbisection(x, epsilon):
 	# don't change these values
 	# epsilon
 	# your code starts here
+	mini = 0
+	maxi = max(1.0,x)
+	res = (maxi+mini)/2.0
+	while abs(res**2-x)>=epsilon:
+		if res**2 < x:
+			mini = res
+		else:
+			maxi = res
+		res = (maxi+mini)/2.0
+	return res
